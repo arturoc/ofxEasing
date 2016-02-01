@@ -265,6 +265,11 @@ inline float map_clamp(float v, float minIn, float maxIn, float minOut, float ma
 	v = std::max(std::min(v, minIn), maxIn);
 	return map(v,minIn,maxIn,minOut,maxOut,easing);
 }
+
+template<typename Function, typename ...Args>
+inline float map_clamp(float v, float minIn, float maxIn, float minOut, float maxOut, Function easing, Args... parameters){
+	return map_clamp(v, minIn, maxIn, minOut, maxOut, bind(easing, parameters...));
+}
 }
 
 #endif /* EASING_H_ */
