@@ -1,0 +1,17 @@
+.DS_Store
+*.xcuserstate
+*.xcscmblueprint
+*/bin/*
+!*/bin/data
+*/obj
+RemoteSystemsTempFiles/
+.metadata
+*/.project
+*/.cproject
+*/.settings
+*/*/project.xcworkspace/**
+*/*/xcuserdata
+.cproject
+.project
+.settings
+*.qbs.user
