@@ -262,7 +262,7 @@ inline float map(float v, float minIn, float maxIn, float minOut, float maxOut, 
 }
 
 inline float map_clamp(float v, float minIn, float maxIn, float minOut, float maxOut, std::function<float(float,float,float,float)> easing){
-	v = std::max(std::min(v, minIn), maxIn);
+	v = std::min(std::max(v, minIn), maxIn);
 	return map(v,minIn,maxIn,minOut,maxOut,easing);
 }
 
@@ -270,6 +270,8 @@ template<typename Function, typename ...Args>
 inline float map_clamp(float v, float minIn, float maxIn, float minOut, float maxOut, Function easing, Args... parameters){
 	return map_clamp(v, minIn, maxIn, minOut, maxOut, bind(easing, parameters...));
 }
+
+typedef std::function<float(float, float, float, float)> function;
 }
 
 #endif /* EASING_H_ */
