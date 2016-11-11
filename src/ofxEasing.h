@@ -101,7 +101,7 @@ class cubic{
 
 class elastic{
 	public:
-	inline static float easeIn (float t,float b , float c, float d, float power=10) {
+	inline static float easeInPow (float t,float b , float c, float d, float power) {
 		if (t==0) return b;  if ((t/=d)==1) return b+c;
 		float p=d*.3f;
 		float a=c;
@@ -110,7 +110,7 @@ class elastic{
 		return -(postFix * sin((t*d-s)*(2*float(pi))/p )) + b;
 	}
 
-	inline static float easeOut(float t,float b , float c, float d, float power=10) {
+	inline static float easeOutPow(float t,float b , float c, float d, float power) {
 		if (t==0) return b;  if ((t/=d)==1) return b+c;
 		float p=d*.3f;
 		float a=c;
@@ -118,7 +118,7 @@ class elastic{
 		return (a*pow(2,-power*t) * sin( (t*d-s)*(2*pi)/p ) + c + b);
 	}
 
-	inline static float easeInOut(float t,float b , float c, float d, float power=10) {
+	inline static float easeInOutPow(float t,float b , float c, float d, float power) {
 		if (t==0) return b;  if ((t/=d/2)==2) return b+c;
 		float p=d*(.3f*1.5f);
 		float a=c;
@@ -130,6 +130,18 @@ class elastic{
 		}
 		float postFix =  a*pow(2,-power*(t-=1)); // postIncrement is evil
 		return postFix * sin( (t*d-s)*(2*pi)/p )*.5f + c + b;
+	}
+
+	inline static float easeIn (float t,float b , float c, float d) {
+		return easeIn(t,b,c,d,10);
+	}
+
+	inline static float easeOut(float t,float b , float c, float d) {
+		return easeOut(t,b,c,d,10);
+	}
+
+	inline static float easeInOut(float t,float b , float c, float d) {
+		return easeInOut(t,b,c,d,10);
 	}
 };
 
