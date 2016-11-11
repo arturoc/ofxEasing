@@ -133,15 +133,15 @@ class elastic{
 	}
 
 	inline static float easeIn (float t,float b , float c, float d) {
-		return easeIn(t,b,c,d,10);
+		return easeInPow(t,b,c,d,10);
 	}
 
 	inline static float easeOut(float t,float b , float c, float d) {
-		return easeOut(t,b,c,d,10);
+		return easeOutPow(t,b,c,d,10);
 	}
 
 	inline static float easeInOut(float t,float b , float c, float d) {
-		return easeInOut(t,b,c,d,10);
+		return easeInOutPow(t,b,c,d,10);
 	}
 };
 
