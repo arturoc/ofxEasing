@@ -142,12 +142,12 @@ matrix:
 
 
 # Android armv7, OF master: Uncomment following lines to enable 
-  - os: linux
-    sudo: false
-    env: TARGET="android" OPT="armv7" OF_BRANCH="master"
-    cache:
-      directories:
-        - ~/android-ndk-r12b
+#  - os: linux
+#    sudo: false
+#    env: TARGET="android" OPT="armv7" OF_BRANCH="master"
+#    cache:
+#      directories:
+#        - ~/android-ndk-r12b
 
 
 # Android armv7, OF stable: Uncomment following lines to enable 
@@ -160,12 +160,12 @@ matrix:
 
 
 # Android x86, OF master: Uncomment following lines to enable 
-  - os: linux
-    sudo: false
-    env: TARGET="android" OPT="x86" OF_BRANCH="master"
-    cache:
-      directories:
-        - ~/android-ndk-r12b
+#  - os: linux
+#    sudo: false
+#    env: TARGET="android" OPT="x86" OF_BRANCH="master"
+#    cache:
+#      directories:
+#        - ~/android-ndk-r12b
 
 
 # Android x86, OF stable: Uncomment following lines to enable 
