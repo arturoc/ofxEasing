@@ -257,7 +257,7 @@ script:
         export CXXFLAGS="${CXXFLAGS} -ftrack-macro-expansion=0";
     elif [ "$TARGET" == "emscripten" ]        
         sed -i "s/PLATFORM_OPTIMIZATION_CFLAGS_DEBUG = .*/PLATFORM_OPTIMIZATION_CFLAGS_DEBUG = -g0/" ${OF_ROOT}/makefileCommon/config.linux.common.mk;
-        source ~/emscripten-sdk/emsdk_env.sh
+        source ~/emscripten-sdk/emsdk_env.sh;
     fi
   - for example in example*; do
         cp ~/openFrameworks/scripts/templates/$TARGET/Makefile $example/;
