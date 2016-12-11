@@ -1,3 +1,11 @@
+language: c++
+compiler: gcc
+sudo: true
+matrix:
+  include:
+  # fully specify builds, include can't dynamically expand matrix entries
+  # relative order of sudo and env is important so that addons: is recognized
+
 # This file allows testing your addon using travis CI servers to use it you'll need to
 # create an account in travis.org and enable your addon there. 
 #
@@ -9,15 +17,6 @@
 #
 # scripts/ci/$TARGET/install.sh
 #
-
-
-language: c++
-compiler: gcc
-sudo: true
-matrix:
-  include:
-  # fully specify builds, include can't dynamically expand matrix entries
-  # relative order of sudo and env is important so that addons: is recognized
 
 # Linux 64bit, OF master
   - os: linux
