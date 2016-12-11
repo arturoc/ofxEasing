@@ -203,12 +203,12 @@ install:
             scripts/$TARGET/download_libs.sh;
         fi
     fi
-#  - if [ "$TARGET" == "linuxarmv7l" ]; then
-#        cd $OF_ROOT/scripts/ci/$TARGET/archlinux;
-#        wget http://ci.openframeworks.cc/rtaudio-armv7hf.tar.bz2;
-#        tar xjf rtaudio-armv7hf.tar.bz2;
-#        rm rtaudio-armv7hf.tar.bz2;
-#    endif
+  - if [ "$TARGET" == "linuxarmv7l" ]; then
+        cd $OF_ROOT/scripts/ci/$TARGET/archlinux;
+        wget http://ci.openframeworks.cc/rtaudio-armv7hf.tar.bz2;
+        tar xjf rtaudio-armv7hf.tar.bz2;
+        rm rtaudio-armv7hf.tar.bz2;
+    fi
   - cd $TRAVIS_BUILD_DIR
   - if [ -f scripts/ci/install.sh ]; then
         scripts/ci/install.sh;
