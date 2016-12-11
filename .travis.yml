@@ -187,9 +187,6 @@ install:
   - git clone --depth=1 --branch=$OF_BRANCH https://github.com/openframeworks/openFrameworks
   - cd openFrameworks
   - export OF_ROOT=$PWD
-  - if [ "$OF_BRANCH" == "stable" ]; then
-        sed -ie 's/$ROOT/$OF_ROOT/g' scripts/ci/$TARGET/install.sh;
-    fi
   - if [ -f scripts/ci/$TARGET/install.sh ]; then
         scripts/ci/$TARGET/install.sh;
     fi
