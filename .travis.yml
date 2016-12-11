@@ -63,19 +63,19 @@ matrix:
   - os: linux
     sudo: required
     dist: trusty
-    env: TARGET="linuxarmv6" OF_BRANCH="master"
+    env: TARGET="linuxarmv6l" OF_BRANCH="master"
 
 
 # Linux ARM6, OF stable: Uncomment following lines to enable 
   - os: linux
     sudo: required
     dist: trusty
-    env: TARGET="linuxarmv6" OF_BRANCH="stable"
+    env: TARGET="linuxarmv6l" OF_BRANCH="stable"
 
 # Linux ARM7, OF master: Uncomment following lines to enable 
   - os: linux
     sudo: false
-    env: TARGET="linuxarmv7" OF_BRANCH="master"
+    env: TARGET="linuxarmv7l" OF_BRANCH="master"
     cache:
       directories:
         - ~/rpi2_toolchain
@@ -83,7 +83,7 @@ matrix:
 # Linux ARM7, OF stable: Uncomment following lines to enable 
   - os: linux
     sudo: false
-    env: TARGET="linuxarmv7" OF_BRANCH="stable"
+    env: TARGET="linuxarmv7l" OF_BRANCH="stable"
     cache:
       directories:
         - ~/rpi2_toolchain
@@ -193,9 +193,9 @@ install:
   - if [ "$OF_BRANCH" == "master" ]; then
         if [ "$TARGET" == "linux" ]; then
             scripts/linux/download_libs.sh -a 64;
-        elif [ "$TARGET" == "linuxarmv6" ]; then
+        elif [ "$TARGET" == "linuxarmv6l" ]; then
             scripts/linux/download_libs.sh -a armv6l;
-        elif [ "$TARGET" == "linuxarmv7" ]; then
+        elif [ "$TARGET" == "linuxarmv7l" ]; then
             scripts/linux/download_libs.sh -a armv7l;
         elif [ "$TARGET" == "tvos" ]; then
             scripts/ios/download_libs.sh;
