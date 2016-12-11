@@ -67,10 +67,10 @@ matrix:
 
 
 # Linux ARM6, OF stable: Uncomment following lines to enable 
-  - os: linux
-    sudo: required
-    dist: trusty
-    env: TARGET="linuxarmv6l" OF_BRANCH="stable"
+#  - os: linux
+#    sudo: required
+#    dist: trusty
+#    env: TARGET="linuxarmv6l" OF_BRANCH="stable"
 
 # Linux ARM7, OF master: Uncomment following lines to enable 
   - os: linux
@@ -81,12 +81,12 @@ matrix:
         - ~/rpi2_toolchain
 
 # Linux ARM7, OF stable: Uncomment following lines to enable 
-  - os: linux
-    sudo: false
-    env: TARGET="linuxarmv7l" OF_BRANCH="stable"
-    cache:
-      directories:
-        - ~/rpi2_toolchain
+#  - os: linux
+#    sudo: false
+#    env: TARGET="linuxarmv7l" OF_BRANCH="stable"
+#    cache:
+#      directories:
+#        - ~/rpi2_toolchain
 
 
 # Emscripten, OF master: Uncomment following lines to enable 
@@ -228,8 +228,8 @@ script:
         sed -i "s/PLATFORM_OPTIMIZATION_CFLAGS_DEBUG = .*/PLATFORM_OPTIMIZATION_CFLAGS_DEBUG = -g0/" ${OF_ROOT}/libs/openFrameworksCompiled/project/makefileCommon/config.linux.common.mk;
         export GCC_PREFIX=arm-linux-gnueabihf;
         export GST_VERSION=1.0;
-        export RPI_ROOT=${OF_ROOT}/scripts/ci/linuxarmv6/raspbian;
-        export TOOLCHAIN_ROOT=${OF_ROOT}/scripts/ci/linuxarmv6/rpi_toolchain;
+        export RPI_ROOT=${OF_ROOT}/scripts/ci/${TARGET}/raspbian;
+        export TOOLCHAIN_ROOT=${OF_ROOT}/scripts/ci/${TARGET}/rpi_toolchain;
         export PLATFORM_OS=Linux;
         export PLATFORM_ARCH=armv6l;
         export PKG_CONFIG_LIBDIR=${RPI_ROOT}/usr/lib/pkgconfig:${RPI_ROOT}/usr/lib/${GCC_PREFIX}/pkgconfig:${RPI_ROOT}/usr/share/pkgconfig;
@@ -269,6 +269,7 @@ script:
         else
             make Debug;
         fi
+        cd ..;
     done
 
 git:
