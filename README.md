@@ -1,5 +1,7 @@
 # ofxEasing
 
+[![Build status](https://travis-ci.org/arturoc/ofxEasing.svg?branch=master)](https://travis-ci.org/arturoc/ofxEasing)
+
 Replaces ofxTween with a simpler API and no external dependencies.
 
 Usage:
