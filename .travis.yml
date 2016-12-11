@@ -33,7 +33,7 @@ matrix:
           - g++-4.9
           - gdb
 
-# Linux 64bit, OF stable
+# Linux 64bit, OF stable:  Not supported yet
 #  - os: linux
 #    dist: trusty
 #    sudo: required
@@ -66,7 +66,7 @@ matrix:
     env: TARGET="linuxarmv6l" OF_BRANCH="master"
 
 
-# Linux ARM6, OF stable: Uncomment following lines to enable 
+# Linux ARM6, OF stable:  Not supported yet
 #  - os: linux
 #    sudo: required
 #    dist: trusty
@@ -80,7 +80,7 @@ matrix:
       directories:
         - ~/rpi2_toolchain
 
-# Linux ARM7, OF stable: Uncomment following lines to enable 
+# Linux ARM7, OF stable:  Not supported yet
 #  - os: linux
 #    sudo: false
 #    env: TARGET="linuxarmv7l" OF_BRANCH="stable"
@@ -102,15 +102,15 @@ matrix:
 
 
 # Emscripten, OF stable: Uncomment following lines to enable 
-  - os: linux
-    sudo: false
-    env: TARGET="emscripten" OF_BRANCH="stable"
-    addons:
-      apt:
-        sources:
-          - ubuntu-toolchain-r-test
-        packages:
-          - libstdc++6
+#  - os: linux
+#    sudo: false
+#    env: TARGET="emscripten" OF_BRANCH="stable"
+#    addons:
+#      apt:
+#        sources:
+#          - ubuntu-toolchain-r-test
+#        packages:
+#          - libstdc++6
 
 
 # iOS, OF master: Not supported yet
