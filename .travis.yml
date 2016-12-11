@@ -264,12 +264,14 @@ script:
         if [ "$TARGET" == "android" ]; then
             echo "ABIS_TO_COMPILE_DEBUG = $OPT" >> config.make;
             make Debug PLATFORM_OS=Android;
+            cd ..;
         elif [ "$TARGET" == "emscripten" ]; then
             emmake make Debug;
+            cd ..;
         else
             make Debug;
+            cd ..;
         fi
-        cd ..;
     done
 
 git:
