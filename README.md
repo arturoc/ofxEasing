@@ -2,6 +2,9 @@
 
 [![Build status](https://travis-ci.org/arturoc/ofxEasing.svg?branch=master)](https://travis-ci.org/arturoc/ofxEasing)
 
+[![Build status](https://ci.appveyor.com/api/projects/status/r1u88c06u8jo8e8p/branch/master?svg=true)](https://ci.appveyor.com/project/arturoc/ofxeasing/branch/master)
+
+
 Replaces ofxTween with a simpler API and no external dependencies.
 
 Usage:
