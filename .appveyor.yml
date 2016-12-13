@@ -50,7 +50,7 @@ install:
 - if "%BUILDER%"=="VS" if exist addons\%APPVEYOR_PROJECT_NAME%\scripts\ci\vs\install.ps call addons\%APPVEYOR_PROJECT_NAME%\scripts\ci\vs\install.ps
 - if "%BUILDER%"=="VS" (    
     for /D %%e in (addons\%APPVEYOR_PROJECT_NAME%\example*) do (
-        projectGenerator.exe addons\%APPVEYOR_PROJECT_NAME%\%%e
+        projectGenerator.exe %%e
     )
   )
 
