@@ -207,12 +207,6 @@ install:
             scripts/$TARGET/download_libs.sh;
         fi
     fi
-  - if [ "$TARGET" == "linuxarmv7l" ]; then
-        cd $OF_ROOT/scripts/ci/$TARGET/archlinux;
-        wget http://ci.openframeworks.cc/rtaudio-armv7hf.tar.bz2;
-        tar xjf rtaudio-armv7hf.tar.bz2;
-        rm rtaudio-armv7hf.tar.bz2;
-    fi
   - cd $TRAVIS_BUILD_DIR
   - if [ -f scripts/ci/install.sh ]; then
         scripts/ci/install.sh;
@@ -280,15 +274,27 @@ script:
         if [ "$TARGET" == "android" ]; then
             echo "ABIS_TO_COMPILE_DEBUG = $OPT" >> config.make;
             make DebugNoOF PLATFORM_OS=Android;
+            if [ $? -ne 0 ]; then
+                exit 1
+            fi
             cd ..;
         elif [ "$TARGET" == "emscripten" ]; then
             emmake make DebugNoOF;
+            if [ $? -ne 0 ]; then
+                exit 1
+            fi
             cd ..;
         elif [ "$TARGET" == "linuxarmv7l" ]; then
             make DebugNoOF PLATFORM_VARIANT=raspberry2;
+            if [ $? -ne 0 ]; then
+                exit 1
+            fi
             cd ..;
         else
             make DebugNoOF;
+            if [ $? -ne 0 ]; then
+                exit 1
+            fi
             cd ..;
         fi
     done
