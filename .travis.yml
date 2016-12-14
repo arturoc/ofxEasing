@@ -275,13 +275,13 @@ script:
         cd $example;
         if [ "$TARGET" == "android" ]; then
             echo "ABIS_TO_COMPILE_DEBUG = $OPT" >> config.make;
-            make Debug PLATFORM_OS=Android;
+            make DebugNoOF PLATFORM_OS=Android;
             cd ..;
         elif [ "$TARGET" == "emscripten" ]; then
-            emmake make Debug;
+            emmake make DebugNoOF;
             cd ..;
         else
-            make Debug;
+            make DebugNoOF;
             cd ..;
         fi
     done
