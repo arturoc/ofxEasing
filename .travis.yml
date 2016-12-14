@@ -79,8 +79,8 @@ matrix:
     cache:
       directories:
         - ~/rpi2_toolchain
-        - ~/firmware-master
-        - ~/archlinux
+        - $TRAVIS_BUILD_DIR/../openFrameworks/scripts/ci/linuxarmv7l/firmware-master
+        - $TRAVIS_BUILD_DIR/../openFrameworks/scripts/ci/linuxarmv7l/archlinux
 
 # Linux ARM7, OF stable:  Not supported yet
 #  - os: linux
