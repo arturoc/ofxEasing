@@ -18,6 +18,6 @@ Some easing functions might have more parameters than the usual 4. Right now onl
 
 ```cpp
 using namespace ofxeasing;
-map(value, minIn, maxIn, minOut, maxOut, back::easeIn_s, 0.8);
+map(value, minIn, maxIn, minOut, maxOut, back::easeIn_s, 0.85);
 ```
 
