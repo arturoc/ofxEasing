@@ -54,10 +54,10 @@ matrix:
     env: TARGET="osx" OF_BRANCH="master"
 
 # OSX
-  - os: osx
-    osx_image: xcode8
-    compiler: clang
-    env: TARGET="osx" OF_BRANCH="stable"
+#  - os: osx
+#    osx_image: xcode8
+#    compiler: clang
+#    env: TARGET="osx" OF_BRANCH="stable"
 
 # Linux ARM6, OF master: Uncomment following lines to enable 
   - os: linux
@@ -216,12 +216,24 @@ install:
   - if [ -f scripts/ci/$TARGET/install.sh ]; then
         scripts/ci/$TARGET/install.sh;
     fi
+  - cd ~
+  - mv $TRAVIS_BUILD_DIR ~/openFrameworks/addons/
+  - cd ~/openFrameworks/libs/openFrameworksCompiled/lib/$TARGET/
+  - if [ "$TARGET" == "android" ]; then
+        cd armv7;
+        wget http://ci.openframeworks.cc/openFrameworks_libs/$TARGET/armv7libopenFrameworksDebug.a;
+        cd ../x86;
+        wget http://ci.openframeworks.cc/openFrameworks_libs/$TARGET/x86/libopenFrameworksDebug.a;
+        cd ..;
+    elif [ "$TARGET" == "emscripten" ]; then
+        wget http://ci.openframeworks.cc/openFrameworks_libs/$TARGET/libopenFrameworksDebug.bc;
+    else
+        wget http://ci.openframeworks.cc/openFrameworks_libs/$TARGET/libopenFrameworksDebug.a;
+    fi
 
 
 script:
-  - cd ~
   - export OF_ROOT=~/openFrameworks
-  - mv $TRAVIS_BUILD_DIR ${OF_ROOT}/addons/
   - cd ${OF_ROOT}/addons/$(basename $TRAVIS_BUILD_DIR)
   - if [ "$TARGET" == "linuxarmv6l" ]; then
         export CXXFLAGS="${CXXFLAGS} -ftrack-macro-expansion=0";
