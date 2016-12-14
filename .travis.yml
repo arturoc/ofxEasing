@@ -218,6 +218,7 @@ install:
     fi
   - cd ~
   - mv $TRAVIS_BUILD_DIR ~/openFrameworks/addons/
+  - mkdir -p ~/openFrameworks/libs/openFrameworksCompiled/lib/$TARGET/
   - cd ~/openFrameworks/libs/openFrameworksCompiled/lib/$TARGET/
   - if [ "$TARGET" == "android" ]; then
         cd armv7;
