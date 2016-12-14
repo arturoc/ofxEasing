@@ -274,28 +274,32 @@ script:
         if [ "$TARGET" == "android" ]; then
             echo "ABIS_TO_COMPILE_DEBUG = $OPT" >> config.make;
             make DebugNoOF PLATFORM_OS=Android;
-            if [ $? -ne 0 ]; then
-                exit 1
-            fi
+            ret=$?;
             cd ..;
+            if [ $ret -ne 0 ]; then
+                exit 1;
+            fi
         elif [ "$TARGET" == "emscripten" ]; then
             emmake make DebugNoOF;
-            if [ $? -ne 0 ]; then
-                exit 1
-            fi
+            ret=$?;
             cd ..;
+            if [ $ret -ne 0 ]; then
+                exit 1;
+            fi
         elif [ "$TARGET" == "linuxarmv7l" ]; then
             make DebugNoOF PLATFORM_VARIANT=raspberry2;
-            if [ $? -ne 0 ]; then
-                exit 1
-            fi
+            ret=$?;
             cd ..;
+            if [ $ret -ne 0 ]; then
+                exit 1;
+            fi
         else
             make DebugNoOF;
-            if [ $? -ne 0 ]; then
-                exit 1
-            fi
+            ret=$?;
             cd ..;
+            if [ $ret -ne 0 ]; then
+                exit 1;
+            fi
         fi
     done
 
