@@ -79,6 +79,8 @@ matrix:
     cache:
       directories:
         - ~/rpi2_toolchain
+        - ~/firmware-master
+        - ~/archlinux
 
 # Linux ARM7, OF stable:  Not supported yet
 #  - os: linux
@@ -87,6 +89,8 @@ matrix:
 #    cache:
 #      directories:
 #        - ~/rpi2_toolchain
+#        - ~/firmware-master
+#        - ~/archlinux
 
 
 # Emscripten, OF master: Uncomment following lines to enable 
