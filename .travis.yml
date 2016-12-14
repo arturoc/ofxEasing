@@ -280,6 +280,9 @@ script:
         elif [ "$TARGET" == "emscripten" ]; then
             emmake make DebugNoOF;
             cd ..;
+        elif [ "$TARGET" == "linuxarmv7l" ]; then
+            make DebugNoOF PLATFORM_VARIANT=raspberry2;
+            cd ..;
         else
             make DebugNoOF;
             cd ..;
