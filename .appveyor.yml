@@ -10,9 +10,9 @@ environment:
       BUILDER: MSYS2
 
   #VisualStudio Building
-#    - platform: x86
-#      BUILDER : VS
-#      BITS: 32
+    - platform: x86
+      BUILDER : VS
+      BITS: 32
     - platform: x64
       BUILDER : VS
       BITS: 64
