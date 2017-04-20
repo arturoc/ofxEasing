@@ -2,7 +2,7 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-	ofBackground(255);
+	ofSetBackgroundColor(255);
 	ofSetColor(0);
 
 	positions.resize(easings.size());
