@@ -51,4 +51,8 @@ class ofApp : public ofBaseApp{
 		};
 
 		std::vector<ofVboMesh> plots{easings.size()};
+
+		std::vector<float> positions;
+		float initTime;
+		float endPosition;
 };
