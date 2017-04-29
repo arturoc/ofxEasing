@@ -3,6 +3,7 @@
 
 #include <cmath>
 #include <functional>
+#include <map>
 
 namespace ofxeasing{
 	constexpr float pi = 3.14159265358979323846f;
@@ -272,6 +273,78 @@ inline float map_clamp(float v, float minIn, float maxIn, float minOut, float ma
 }
 
 typedef std::function<float(float, float, float, float)> function;
+
+
+enum class Function {
+   Linear,
+   Sine,
+   Circular,
+   Quadratic,
+   Cubic,
+   Quartic,
+   Quintic,
+   Exponential,
+   Back,
+   Bounce,
+   Elastic
+};
+
+enum class Type {
+   In,
+   Out,
+   InOut
+};
+
+inline function easing(Function f, Type t){
+	static std::map<std::pair<Function,Type>, function> index =
+	{
+		{std::make_pair(Function::Linear, Type::In), linear::easeIn},
+		{std::make_pair(Function::Linear, Type::Out), linear::easeOut},
+		{std::make_pair(Function::Linear, Type::InOut), linear::easeInOut},
+
+		{std::make_pair(Function::Sine, Type::In), sine::easeIn},
+		{std::make_pair(Function::Sine, Type::Out), sine::easeOut},
+		{std::make_pair(Function::Sine, Type::InOut), sine::easeInOut},
+
+		{std::make_pair(Function::Circular, Type::In), circ::easeIn},
+		{std::make_pair(Function::Circular, Type::Out), circ::easeOut},
+		{std::make_pair(Function::Circular, Type::InOut), circ::easeInOut},
+
+		{std::make_pair(Function::Quadratic, Type::In), quad::easeIn},
+		{std::make_pair(Function::Quadratic, Type::Out), quad::easeOut},
+		{std::make_pair(Function::Quadratic, Type::InOut), quad::easeInOut},
+
+		{std::make_pair(Function::Cubic, Type::In), cubic::easeIn},
+		{std::make_pair(Function::Cubic, Type::Out), cubic::easeOut},
+		{std::make_pair(Function::Cubic, Type::InOut), cubic::easeInOut},
+
+		{std::make_pair(Function::Quartic, Type::In), quart::easeIn},
+		{std::make_pair(Function::Quartic, Type::Out), quart::easeOut},
+		{std::make_pair(Function::Quartic, Type::InOut), quart::easeInOut},
+
+		{std::make_pair(Function::Quintic, Type::In), quint::easeIn},
+		{std::make_pair(Function::Quintic, Type::Out), quint::easeOut},
+		{std::make_pair(Function::Quintic, Type::InOut), quint::easeInOut},
+
+		{std::make_pair(Function::Exponential, Type::In), exp::easeIn},
+		{std::make_pair(Function::Exponential, Type::Out), exp::easeOut},
+		{std::make_pair(Function::Exponential, Type::InOut), exp::easeInOut},
+
+		{std::make_pair(Function::Back, Type::In), back::easeIn},
+		{std::make_pair(Function::Back, Type::Out), back::easeOut},
+		{std::make_pair(Function::Back, Type::InOut), back::easeInOut},
+
+		{std::make_pair(Function::Bounce, Type::In), bounce::easeIn},
+		{std::make_pair(Function::Bounce, Type::Out), bounce::easeOut},
+		{std::make_pair(Function::Bounce, Type::InOut), bounce::easeInOut},
+
+		{std::make_pair(Function::Elastic, Type::In), elastic::easeIn},
+		{std::make_pair(Function::Elastic, Type::Out), elastic::easeOut},
+		{std::make_pair(Function::Elastic, Type::InOut), elastic::easeInOut},
+	};
+
+	return index[std::make_pair(f,t)];
+}
 }
 
 #endif /* EASING_H_ */
