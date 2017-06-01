@@ -4,7 +4,7 @@
 #include <cmath>
 #include <functional>
 #include <map>
-#ifdef TARGET_WIN32
+#if defined( __WIN32__ ) || defined( _WIN32 )
 #include <algorithm>
 #endif
 namespace ofxeasing{
