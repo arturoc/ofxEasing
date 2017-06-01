@@ -5,7 +5,7 @@
 #include <functional>
 #include <map>
 #ifdef TARGET_WIN32
-#include <algorith>
+#include <algorithm>
 #endif
 namespace ofxeasing{
 	constexpr float pi = 3.14159265358979323846f;
