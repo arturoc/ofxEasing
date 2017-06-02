@@ -4,7 +4,9 @@
 #include <cmath>
 #include <functional>
 #include <map>
-
+#if defined( __WIN32__ ) || defined( _WIN32 )
+#include <algorithm>
+#endif
 namespace ofxeasing{
 	constexpr float pi = 3.14159265358979323846f;
 
